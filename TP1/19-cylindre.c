@@ -24,8 +24,8 @@ int main(int argc, char** argv){
         printf("Usage %s <rayon> <hauteur>\n  ",argv[0]);
         return -1;
     }
-    rayon = atoi(argv[1]);
-    hauteur = atoi(argv[2]);
+    rayon = strtod(argv[1], NULL);
+    hauteur = strtod(argv[2], NULL);
     printf("Aire d'un cercle de rayon %d = %lf\n", rayon, aire(rayon));
     printf("Perimetre d'un cercle de rayon %d = %lf\n", rayon, perimetre(rayon));
     cylindre(rayon, hauteur);

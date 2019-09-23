@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 10
+#define SIZE 6
 
 //C'est pas vraiment ca, normalement faut donner un intervalle je crois pour les 2 return dichotomie, entre 0 et half, et entre half et size
 int dichotomie(int size, int array[], int m){

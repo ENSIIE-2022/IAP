@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 10
+#define SIZE 6
 
 int isIn(int size, int array[], int m){
     for(int i = 0; i < size; i++){

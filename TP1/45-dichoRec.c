@@ -26,3 +26,22 @@ int main(int argc, char** argv){
     return 0;
 }
 
+/*
+    // Vérifie que l'interval de recherche n'est pas vide
+    if(debut > fin){
+      return false;
+    }
+    // Détermine le milieur de l'intervalle
+    int milieu = (debut+fin)/2;
+    if (tab[milieu] < v){
+      // Appel récursif sur un intervalle strictement plus petit
+      // pour assurer la terminaison
+      return dicho(v,milieu+1,fin); 
+    }
+    if (tab[milieu] > v){
+      // Appel récursif sur un intervalle strictement plus petit
+      return dicho(v,debut,milieu-1);
+    }
+    // Si ni inférieur ni supérieur alors égal
+    return true;
+*/

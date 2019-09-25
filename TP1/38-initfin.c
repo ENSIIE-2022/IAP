@@ -1,7 +1,6 @@
 //Lucas NAVETEUR
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 int* zero(){
     int *toto = (int*) malloc(sizeof(int));

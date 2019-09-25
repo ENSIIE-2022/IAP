@@ -22,6 +22,9 @@ int main(int argc, char** argv){
     int *tab = (int *) malloc(n * sizeof(int));
     swap(n, tab, min, max);
     printf("max = %d / min = %d\n", *max, *min);
+    free(min);
+    free(max);
+    free(tab);
     return 0;
 }
 

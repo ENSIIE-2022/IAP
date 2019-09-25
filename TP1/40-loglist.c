@@ -17,6 +17,7 @@ int main(int argc, char** argv){
     for(int i = 0 ; i < n ; i++){
         printf("p[%d] = %f\n", i, p[i]);
     }
+    free(p);
     return 0;
 }
 

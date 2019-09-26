@@ -20,15 +20,9 @@ struct type{
     char type;
 };
 
-void setGame(){
-    
-}
-
-int main(void){
-    int i, j;
+void setGame(struct type game[X][Y]){
     struct type current_case;
-    struct type game[X][Y];
-    int element;
+    int i, j, element;
     srand(time (NULL));
     for(i = 0; i < X; i++){
         putchar('\n');
@@ -50,7 +44,12 @@ int main(void){
             }
             printf("%c ", game[i][j].type);
         }
-    }
+    }   
+}
+
+int main(void){
+    struct type game[X][Y];
+    setGame(game);
     putchar('\n');
 
 }

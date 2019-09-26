@@ -23,53 +23,76 @@ struct monstre{
 
 struct territoire{
     char type;
-    int hasPlayer;
-    int hasMonster;
 };
 
 char getCaseType(struct territoire game[X][Y], int x, int y){
+    printf("----------------- %c ----------------\n", game[x][y].type);
     return game[x][y].type;
 }
 
-void moveHero(struct hero myHero){
+struct hero moveHero(struct territoire game[X][Y], struct hero myHero){
     char mouvement;
-    printf("Quel mouvement pour notre Héro ?\n");
+    printf("Quel mouvement pour notre Héro ? (%d/%d)\n", myHero.x, myHero.y);
     printf("\tZ : Avancer\n");
     printf("\tQ : Aller à gauche\n");
     printf("\tS : Reculer\n");
     printf("\tD : Aller à droite\n");
     printf("\tX : Ne pas bouger\n");
-    scanf("%c", &mouvement);
+    scanf(" %c", &mouvement);
     switch(mouvement){
         case 'Z':
-            printf("\tLe héro avance !\n");
-            break;
+            if(myHero.x == 0 || (getCaseType(game, (myHero.x)-1, myHero.y) == '~')){
+                printf("\tLe héro ne peut plus aller à gauche !\n");
+                break;
+            }else{
+                printf("\tLe héro va à gauche !\n");
+                myHero.x -= 1;
+                break;
+            }
         case 'Q':
-            printf("\tLe héro va à gauche !\n");
-            break;
+            if(myHero.y == 0 || (getCaseType(game, myHero.x, (myHero.y)-1) == '~')){
+                printf("\tLe héro ne peut plus avancer !\n");
+                break;
+            }else{
+                printf("\tLe héro avance !\n");
+                myHero.y -= 1;
+                break;
+            }
         case 'S':
-            printf("\tLe héro recule !\n");
-            break;
+            if(myHero.x == Y-1 || (getCaseType(game, (myHero.x)+1, myHero.y) == '~')){
+                printf("\tLe héro ne peut plus aller à droite !\n");
+                break;
+            }else{
+                printf("\tLe héro va à droite !\n");
+                myHero.x += 1;
+                break;
+            }
         case 'D':
-            printf("\tLe héro va à droite !\n");
-            break;
+            if(myHero.y == X-1 || (getCaseType(game, myHero.x, (myHero.y)+1) == '~')){
+                printf("\tLe héro ne peut plus reculer !\n");
+                break;
+            }else{
+                printf("\tLe héro recule !\n");
+                myHero.y += 1;
+                break;
+            }
         case 'X':
             printf("\tLe héro ne bouge pas !\n");
             break;
         default:
             printf("Mouvement non reconnu, on ne fait rien\n");
-            //Même comportement que X
+            break;
     }
     //Si la case destinatrice est de l'eau, return 1 (pb)
-
+    return myHero;
 }
 
-void printHeroPosition(struct territoire game[X][Y], int x, int y){
+void printHeroPosition(struct territoire game[X][Y], struct hero player){
     int i, j;
     for(i = 0; i < X; i++){
         putchar('\n');
         for(j = 0; j < Y; j++){
-            if(i == x && j == y)
+            if(i == player.x && j == player.y)
                 printf("X ");
             else
                 printf("%c ", game[i][j].type);
@@ -89,6 +112,7 @@ void printGame(struct territoire game[X][Y]){
     putchar('\n');
 }
 
+//setGame sert à attribuer des types aux différentes cases du plateau de jeu
 void setGame(struct territoire game[X][Y]){
     struct territoire current_case;
     int i, j, element;
@@ -115,14 +139,15 @@ void setGame(struct territoire game[X][Y]){
     printGame(game);
 }
 
-struct hero placeHero(struct territoire game[X][Y]){
+//
+struct hero randomPlaceHero(struct territoire game[X][Y]){
     struct hero myHero;
     srand(time (NULL));
     do{
         myHero.x = rand()%X;
         myHero.y = rand()%Y;
         
-    }while(getCaseType(game, myHero.x, myHero.y) != '~');
+    }while(getCaseType(game, myHero.x, myHero.y) == '~');
     return myHero;
 }
 
@@ -130,11 +155,12 @@ int main(void){
     struct territoire game[X][Y];
     struct hero myHero;
     setGame(game);
-    myHero = placeHero(game);
+    myHero = randomPlaceHero(game);
     printf("Mon héro se trouve à X = %d/ Y = %d\n", myHero.x, myHero.y);
-    printHeroPosition(game, myHero.x, myHero.y);
+    printHeroPosition(game, myHero);
     while(1){
-        moveHero(myHero);
+        myHero = moveHero(game, myHero);
+        printHeroPosition(game, myHero);
     }
 
 }

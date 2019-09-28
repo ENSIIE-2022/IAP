@@ -1,10 +1,10 @@
-//Théo SZATKOWSKI
+//Théo 'Lako' SZATKOWSKI (sTheoz)
 #include<stdio.h>
 #include<stdlib.h>
 
-//Ne fonctionne pas tout le temps
 int dicho(int* tab, int min, int max, int x){
     printf("Où suis-je ? min=%d max=%d \n",min,max);
+    printf("Min = %d et Max = %d et x = %d\n",tab[min], tab[max], x);
     if( x == tab[min] || x == tab[max]){
         return 1;
     }else if( max == min+1){
@@ -13,13 +13,16 @@ int dicho(int* tab, int min, int max, int x){
     else if( x < tab[min] || x > tab[max]){
         return 0;
     }else if(x <= tab[(min+max)/2]){
-        return dicho(tab,min, (min+max)/2,x );
+        return dicho(tab,min, (min+max)/2 ,x );
     }else 
     return dicho(tab, (min+max)/2 ,max,x);
 }
 
 int main(void){
-    int x=150, min=0, max=16, res;
+    int x=150;
+    int min=0;
+    int max=15;
+    int res;
     int tab[16]={1,15,16,18,20,25,26,90,150,200,220,230,450,550,900,1000};
     res = dicho(tab, min, max, x);
     if(res == 1){

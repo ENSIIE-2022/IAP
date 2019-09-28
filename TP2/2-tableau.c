@@ -1,4 +1,4 @@
-//Théo 'Lako' SZATKOWSKI (sTheoz)
+//Théo SZATKOWSKI
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -19,10 +19,7 @@ int dicho(int* tab, int min, int max, int x){
 }
 
 int main(void){
-    int x=150;
-    int min=0;
-    int max=16;
-    int res;
+    int x=150, min=0, max=16, res;
     int tab[16]={1,15,16,18,20,25,26,90,150,200,220,230,450,550,900,1000};
     res = dicho(tab, min, max, x);
     if(res == 1){

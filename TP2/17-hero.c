@@ -161,7 +161,4 @@ int main(void){
     while(1){
         myHero = moveHero(game, myHero);
         printHeroPosition(game, myHero);
-    }
-
->>>>>>> d02496df2dea89013ef795f7f4de17ae5dd213fb
 }

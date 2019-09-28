@@ -8,6 +8,8 @@ Les règles à suivre :
 - Essayez (Un max) de préciser l'utilisé de chaque fonction avant son utilisation et des commandes si elles sont complexes
 - Ne remplacez un exercice déjà fait SEULEMENT SI vous êtes certain que votre exercice est mieux codé
 
+A remplacer : 
+- TP1/45
 
 Souvenez vous, la coopération est la clef !
 Bon courage à tous et à toutes ! :)

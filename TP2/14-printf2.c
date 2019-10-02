@@ -4,11 +4,10 @@
 #include <string.h>
 
 void join(char *s, char *c){
-    char *buff = malloc(sizeof(char) * strlen(c));
-    printf("Remove %s from %s\n", c, s);
-    for(int i = 0; i < strlen(s); i++){
-        //Si strcmp(c, s[i]+strlen(c) == 0)
-            //C'est bon
+    int j; 
+    for (int i = 0 ; i < strlen(s) ; i++) {
+        if ( strcmp(s[i],c) == 0 ) 
+            s[i] = '\n';
     }
     return;
 }

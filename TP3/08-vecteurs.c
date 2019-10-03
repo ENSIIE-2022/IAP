@@ -82,6 +82,17 @@ vector_t* replace_sum_vector(vector_t *v1, vector_t *v2){
     return v1;
 }
 
+void mult_vector(vector_t *vector, int number){
+    vector_t *vector_result;
+    vector_result = initialize_vector(vector_result);
+    increase_dimension(vector_result, vector->n);
+    for(int i = 0; i < vector->n; i++){
+        vector->v[i] *= number;
+    }
+    return;
+}
+
+
 int main(int argc, char** argv){
 
     return 0;

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char* join(char **argv){
+char* join(char *argv){
     
 }
 

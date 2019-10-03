@@ -57,14 +57,14 @@ vector_t copy_vector(vector_t *vecteur){
 
 vector_t* sum_vector(vector_t *v1, vector_t *v2){
     vector_t* v3;
+    v3 = initialize_vector(v3);
     if(v1->n > v2->n)
         increase_dimension(v2, (v1->n-v2->n));
     else if(v1->n < v2->n)
         increase_dimension(v1, (v2->n-v1->n));
-    //Faire la somme des vecteurs
-    v3->n = v1->n;
+    increase_dimension(v3, v1->n);
     for(int i = 0; i < v1->n; i++){
-        v3->v[i] = v1->v[i] + v2->v[i];   
+        v3->v[i] = v1->v[i] + v2->v[i];
     }
     return v3;
 }

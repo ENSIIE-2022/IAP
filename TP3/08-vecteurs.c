@@ -70,6 +70,18 @@ vector_t* sum_vector(vector_t *v1, vector_t *v2){
     return v3;
 }
 
+vector_t* replace_sum_vector(vector_t *v1, vector_t *v2){
+    if(v1->n > v2->n)
+        increase_dimension(v2, (v1->n-v2->n));
+    else if(v1->n < v2->n)
+        increase_dimension(v1, (v2->n-v1->n));
+    for(int i = 0; i < v2->n; i++){
+        v1->v[i] += v2->v[i];
+    }
+    print_vector(v1);
+    return v1;
+}
+
 int main(int argc, char** argv){
 
     return 0;

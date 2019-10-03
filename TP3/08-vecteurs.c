@@ -66,6 +66,7 @@ vector_t* sum_vector(vector_t *v1, vector_t *v2){
     for(int i = 0; i < v1->n; i++){
         v3->v[i] = v1->v[i] + v2->v[i];
     }
+    print_vector(v3);
     return v3;
 }
 

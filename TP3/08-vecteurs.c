@@ -87,6 +87,13 @@ void mult_vector(vector_t *vector, int number){
     vector_result = initialize_vector(vector_result);
     increase_dimension(vector_result, vector->n);
     for(int i = 0; i < vector->n; i++){
+        vector_result->v[i] *= number;
+    }
+    return;
+}
+
+void replace_mult_vector(vector_t *vector, int number){
+    for(int i = 0; i < vector->n; i++){
         vector->v[i] *= number;
     }
     return;

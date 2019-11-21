@@ -1,4 +1,4 @@
-src = main.c pgcd.c
+src = main.c pgcdSimple.c pgcdRec.c
 obj = $(src:.c=.o)
 
 LDFLAGS = 
@@ -12,7 +12,7 @@ main : $(obj)
 
 clean:
 	rm -f $(obj)
-	
+
 launch:
 	clear;\
 	make;\

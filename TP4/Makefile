@@ -1,4 +1,4 @@
-src = main.c pgcdSimple.c pgcdRec.c
+src = main.c pgcdSimple.c pgcdRec.c pgcdIter.c
 obj = $(src:.c=.o)
 
 LDFLAGS = 

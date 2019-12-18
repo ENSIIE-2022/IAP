@@ -8,13 +8,14 @@
 
 char* strrev(char *s){
     char *s2 = malloc(strlen(s) + 1);
-    for(int i = 0; i < strlen(s); i++){
-        s2[i] = s[strlen(s)-i];
-        printf("£££ %c £££\n", s[strlen(s)-i]);
+    for(int i = 0; i <= strlen(s); i++){ // correction JOVE ajout du = au lieu de <
+        s2[i] = s[strlen(s)-i-1]; //correction JOVE, ajout du -1
+        printf("£££ %c £££\n", s[strlen(s)-i-1]); //correction JOVE, ajout du -1
     }
         printf("$$$ %s $$$\n", s2);
-    free(s2);
-        printf("$$$ %s $$$\n", s2);
+
+    // correction JOVE, suppr du free(s2)
+   
     return s2;
 }
 
